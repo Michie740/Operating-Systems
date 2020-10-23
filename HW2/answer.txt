@@ -1,0 +1,16 @@
+1. Difference between monolithic and microkernel
+In monolithic kernels, the kernel is a large process running in a single address space where all the services exist in the same place. Any piece of the kernel can talk to any other part using simple function calls.
+
+In a microkernel, the kernel is broken down into separate processes in separate address spaces. Different functions will have different kernels.
+
+In a microkernel, if one process crashes, the other processes can still function well compared to the monolithic kernel, where if one process fails, the entire machine could crash too. It is also a lot smaller compared to the monolithic kernel. 
+However, the microkernel falls short in terms of performance. It is slower than monolithic kernels. This is because of all the separate processes. 
+
+2. Permissions of touch
+-rw-r--r--
+The permissions of touch are listed above. The permissions are that the file file owner can read and write the file, while others can only read, but not modify. 
+To make the file executable for the user that owns the file, you have to use chmod u+x foo.txt.
+
+3. What are file descriptors and how are they assigned?
+A file descriptor is basically an integer number that represents the entry of an opened file. It is used to identify the file that has been opened.
+A file descriptor value of 2 is possible. This is because if there is no error the value assigned to the file descriptor will be an integer that is 0 or greater.
