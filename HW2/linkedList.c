@@ -94,25 +94,25 @@ struct Node *mergeLists(struct Node *l1, struct Node *l2) {
     while (1){
       if(l1 != NULL && l2 != NULL){
         if (l1->data <= l2->data){
-          listInsertTail(merged, l1->data);
+          merged = listInsertTail(merged, l1->data);
           l1 = l1->next;
         }
         else{
-          listInsertTail(merged, l2->data);
+          merged = listInsertTail(merged, l2->data);
           l2 = l2->next;
         }
       }
       else if (l1 == NULL && l2 != NULL){
-        listInsertTail(merged, l2->data);
+        merged = listInsertTail(merged, l2->data);
+
         l2 = l2-> next;
       }
       else if (l2 == NULL && l1 != NULL){
-        listInsertTail(merged, l1->data);
+        merged = listInsertTail(merged, l1->data);
         l1 = l1-> next;
       }
       else {
         return merged;
-        break;
       }
     }
   }
