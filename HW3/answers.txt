@@ -1,0 +1,27 @@
+1. Explain the working of the shell when it executes a command and how it uses fork() and
+exec(). Draw a diagram and label it with process ids to show your understanding. Submit
+this diagram as a separate file in your repo called question1.jpg or question2.png.
+
+When a shell executes a command, it will use fork() to clone the current process and create a child. exec() will then replace the current process with new code and data.
+
+2. Briefly explain how the OS switches between processes.
+Each process has three states - running, blocked, and ready. The OS switches between processes depending on which state each process is in. The OS will allow a running process to run until it needs user input or some other external data. It will then add the process to the blocked queue and retrieve a process from the ready queue. When the user inputs information or the event occurs, the process in the blocked queue will be added to the ready queue.
+
+In a process switch, the context of the processor is saved and the PCB of the process in the current running state is updated. The PCB is then moved to the appropriate queue (ready/blocked) and the other process is selected for execution. The PCB of the new process is updated as well as memory management data structures. Then the context of the processor that was saved before is restored.
+
+3. Three batch jobs, A through C, arrive at a high performance computer at the same time.
+They have estimated running times of 10, 6 and 2 minutes respectively. At time 3, jobs D
+and E arrive, which take 4 and 8 minutes respectively. For each of the following
+scheduling algorithms, determine the mean turnaround time. Ignore any process
+switching overhead.
+a. First come, first serve
+(10 + (10 + 6) + (10 + 6 + 2) + (10 + 6 + 2 + 4 - 3) + (10 + 6 + 2 + 4 + 8 - 3))/5 =
+(10 + 16 + 18 + 19 + 27)/5
+
+mean turnaround time: 18
+
+b. Shortest job first
+(2 + (2 + 6) + (2 + 6 + 4 - 3) + (2 + 6 + 4 + 8 - 3) + (2 + 6 + 4 + 8 + 10))/5 =
+(2 + 8 + 9 + 17 + 30)/5
+
+ mean turnaround time: 13.2
